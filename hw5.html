@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Functions Example</title>
+</head>
+<body>
+    <h1>JavaScript Functions Example</h1>
+
+    <button onclick="showAlert()">Click me for an Alert</button>
+
+    <p>Enter a number to calculate its square:</p>
+    <input type="number" id="numberInput">
+    <button onclick="calculateSquare()">Calculate Square</button>
+    <p id="result"></p>
+
+    <p>Click the button to change the background color:</p>
+    <button onclick="changeBackgroundColor()">Change Background Color</button>
+
+    <p>Click the button to hide or show the text below:</p>
+    <button onclick="toggleText()">Toggle Text</button>
+    <p id="hiddenText">This is some hidden text.</p>
+
+    <script>
+        // JavaScript Functions
+        function showAlert() {
+            alert("This is an alert!");
+        }
+
+        function calculateSquare() {
+            const numberInput = document.getElementById("numberInput");
+            const result = document.getElementById("result");
+            const number = parseFloat(numberInput.value);
+            if (!isNaN(number)) {
+                const square = number * number;
+                result.textContent = `The square of ${number} is ${square}`;
+            } else {
+                result.textContent = "Please enter a valid number.";
+            }
+        }
+
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = getRandomColor();
+        }
+
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function toggleText() {
+            const hiddenText = document.getElementById("hiddenText");
+            if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
+                hiddenText.style.display = "block";
+            } else {
+                hiddenText.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
